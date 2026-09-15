@@ -35,7 +35,7 @@ with tarfile.open(fileobj=io.BytesIO(archive)) as source, zipfile.ZipFile(target
             config.pop('project_id', None)
             data = (json.dumps(config, indent=2) + '\n').encode()
         bundle.writestr('second-take/' + item.name, data)
-    bundle.writestr('second-take/SOURCE_SNAPSHOT.md', '# Source snapshot\n\nSource revision: `' + revision + '`\n\nExported from committed source. The sole source transformation removes the original private Site project ID from `.openai/hosting.json`; logical runtime bindings are retained. No Git history, installed dependencies, database, session data or runtime credentials are included. See `docs/BUILD_DISCLOSURE.md` for work history and attribution.\n')
+    bundle.writestr('second-take/SOURCE_SNAPSHOT.md', '# Source snapshot\n\nSource revision: `' + revision + '`\n\nExported from committed source. The sole source transformation removes the original private Site project ID from `.openai/hosting.json`; logical runtime bindings are retained. No Git history, installed dependencies, database, session data or runtime credentials are included. See `docs/submission/BUILD_DISCLOSURE.md` for work history and attribution.\n')
 with zipfile.ZipFile(target) as bundle:
     if bundle.testzip() is not None:
         raise SystemExit('Archive integrity verification failed')

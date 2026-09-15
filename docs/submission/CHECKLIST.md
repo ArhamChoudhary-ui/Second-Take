@@ -5,7 +5,7 @@ Reviewed against the [official hackathon rules](https://amazonappdev2026.devpost
 ## Positioning
 
 - Primary: **Alexa+ simulated experience**, with working MCP tools as technical evidence.
-- Open Source: enter after publishing the source and completing the contribution details.
+- Open Source: the source is public; review eligibility and complete the contribution fields.
 - AWS Builder: an unconfigured adapter is insufficient evidence of actual use. Demonstrate an AWS integration first.
 
 ## Prepared
@@ -27,7 +27,7 @@ Reviewed against the [official hackathon rules](https://amazonappdev2026.devpost
 ## Before submitting
 
 - [ ] Confirm entrant/team eligibility and register on Devpost.
-- [ ] Review and publish this source to a public GitHub repository you own.
+- [x] Publish source to ArhamChoudhary-ui/Second-Take.
 - [ ] Verify the MIT license is detected at the repository top/About area; preserve third-party notices.
 - [ ] Add repository URL, contribution URL, GitHub username and contribution description.
 - [ ] Run the README from a fresh checkout.
@@ -35,7 +35,7 @@ Reviewed against the [official hackathon rules](https://amazonappdev2026.devpost
 - [ ] Recommended: have new users try the tasks and record actual findings. This is our validation recommendation, not an organizer submission requirement.
 - [ ] Record and time an English demo under three minutes.
 - [ ] Upload publicly to YouTube or Vimeo and verify visibility.
-- [ ] Replace all placeholders in `DEVPOST_DRAFT.md`.
+- [ ] Replace all placeholders in `docs/submission/PROJECT_DESCRIPTION.md`.
 - [ ] Arrange judge access. The hosted app is currently owner-private. Provide the public repo/video and a tested app access route. Never share your account password or bypass tokens.
 - [ ] Accurately disclose eligible-period changes and any earlier work.
 - [ ] Review feedback and friction entries; distinguish environment problems from Amazon API defects.
@@ -43,10 +43,6 @@ Reviewed against the [official hackathon rules](https://amazonappdev2026.devpost
 
 ## Package entry point
 
-Start with `SUBMIT_START_HERE.md`. It maps every prepared file to its submission field.
+Start with `docs/submission/README.md`. It maps every prepared file to its submission field.
 
-## Next improvement
-
-Test whether people understand the recovery stories. Then connect a supported real provider or configure Bedrock and capture it working. Do not widen the project to every track at the expense of a reliable demonstration.
-
-No GitHub publication, video upload or hackathon submission has been performed by these documents.
+The source is published. Video upload and hackathon submission remain unfinished.

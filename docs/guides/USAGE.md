@@ -57,7 +57,7 @@ Preview creates a proposal. Approval authorizes that particular proposal. Check 
 
 ## What you still need to do
 
-Publish the reviewed source to your public GitHub account, record the actual English demo and test with people who did not build it. Add only measured findings to the submission. Follow `SUBMISSION_CHECKLIST.md` and `DEMO_SCRIPT.md`.
+Publish the reviewed source to your public GitHub account, record the actual English demo and test with people who did not build it. Add only measured findings to the submission. Follow `docs/submission/CHECKLIST.md` and `docs/submission/DEMO_SCRIPT.md`.
 
 ## Restaurant, appointment and event requests
 

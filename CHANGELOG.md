@@ -1,5 +1,11 @@
 # Changelog
 
+## Repository organization
+
+- Shortened the main README and grouped documentation into usage, technical and submission folders.
+- Removed 55 unused starter UI components, an unused mobile hook and redundant publication/planning documents.
+- Preserved runtime behavior, dependency lockfile, tests and license notices.
+
 ## 0.2.0 — 2026-09-15
 
 - Guided restaurant, appointment and event reservations with multi-turn details, explicit forms, approved changes and cancellation.

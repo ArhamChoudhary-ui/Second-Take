@@ -6,4 +6,4 @@ For a new provider, define the supported operations and cancellation rules, stab
 
 Add focused regression tests when changing approval, execution, ownership, inventory, date handling or recovery semantics. Describe which checks you actually ran. Never include credentials, session cookies, personal conversation exports or database files in an issue or pull request.
 
-This is an MIT-licensed prototype. Live providers, independent MCP interoperability and human usability research remain useful follow-up work; consult `docs/SECURITY.md` before treating it as a production service.
+This is an MIT-licensed prototype. Live providers, independent MCP interoperability and human usability research remain useful follow-up work; consult `docs/technical/SECURITY.md` before treating it as a production service.

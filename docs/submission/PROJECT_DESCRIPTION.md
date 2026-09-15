@@ -58,13 +58,13 @@ TypeScript, React, Vinext, Cloudflare Workers, Cloudflare D1, MCP, Zod, Radix UI
 
 Primary: **Alexa+ — simulated experience**, supported by a working MCP endpoint.
 
-Open Source: **select after publishing** the new MIT-licensed public repository during the submission window and completing the fields below.
+Open Source: the MIT-licensed source is published at the repository below. Review eligibility and complete the contribution fields before submitting.
 
 AWS Builder: **do not select for this build**; live AWS use has not been demonstrated.
 
 ## Tool feedback
 
-Use the reviewed content of `PRODUCT_FEEDBACK.md`. Attach the observed entries from `FRICTION_LOG.md` in the optional feedback fields where supported. Do not claim untested API experience.
+Use the reviewed content of `docs/submission/PRODUCT_FEEDBACK.md`. Attach the observed entries from `docs/submission/FRICTION_LOG.md` in the optional feedback fields where supported. Do not claim untested API experience.
 
 ## Fields only the entrant can finalize
 
@@ -74,6 +74,6 @@ Use the reviewed content of `PRODUCT_FEEDBACK.md`. Attach the observed entries f
 - Public English YouTube/Vimeo demo, under 3 minutes: [ACTUAL VIDEO URL]
 - Judge access instructions: [VERIFIED ACCESS ROUTE; THE CURRENT HOSTED APP IS OWNER-PRIVATE]
 - Actual entrant/team members: [ACTUAL NAMES]
-- Work disclosure: this checkout records project work beginning September 14, 2026, with earlier open-source starter components and AI assistance. Review `BUILD_DISCLOSURE.md` and disclose any additional pre-existing work.
+- Work disclosure: this checkout records project work beginning September 14, 2026, with earlier open-source starter components and AI assistance. Review `docs/submission/BUILD_DISCLOSURE.md` and disclose any additional pre-existing work.
 
-Suggested Open Source contribution description is in `GITHUB_PUBLICATION.md`. Never replace missing links with invented ones.
+Suggested Open Source contribution description is in `docs/submission/README.md`. Never replace missing links with invented ones.
