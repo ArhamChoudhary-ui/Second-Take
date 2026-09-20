@@ -2,7 +2,7 @@
 
 ## Repository reorganization — 2026-09-20
 
-The reorganized source passed TypeScript checks, all 47 unit tests, the Worker/client build, and the compiled HTTP/MCP integration checks. The local migration command applied the migration successfully from `database/migrations/`. Relative documentation links and tooling syntax were also checked.
+The reorganized source passed TypeScript checks, all 47 unit tests, the Worker/client build, and the compiled HTTP/MCP integration checks. The local migration command applied the migration successfully from `src/server/database/migrations/`. Relative documentation links and tooling syntax were also checked.
 
 These checks used the existing installed dependencies. This change was not visually tested in a browser or deployed to the hosted prototype.
 

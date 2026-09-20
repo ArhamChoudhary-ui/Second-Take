@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Grouped database migrations with server database code and consolidated tool configuration under `config/`.
+- Removed unused starter configuration and moved development details out of the main README.
+
 - Renamed hosting configuration and runtime helpers to neutral filenames; removed the unused platform authentication module.
 
 - Consolidated application code under `src/`, with separate components, booking logic, database access, styles, and types.

@@ -1,4 +1,5 @@
 import vinext from "vinext";
+import tailwindcss from "@tailwindcss/postcss";
 import { defineConfig } from "vite";
 import hostingConfig from "./config/hosting.json";
 import { readExecutionProfile } from "./tooling/runtime/execution-profile.mjs";
@@ -51,6 +52,7 @@ export default defineConfig(async () => {
   const { cloudflare } = await import("@cloudflare/vite-plugin");
 
   return {
+    css: { postcss: { plugins: [tailwindcss()] } },
     server: {
       ...(managedLinux ? { host: "0.0.0.0", allowedHosts: ["terminal.local"] } : {}),
       ...(isCodexSeatbeltSandbox ? { watch: { useFsEvents: false, usePolling: true } } : {}),

@@ -175,7 +175,7 @@ export function sites({ mockAuth = true } = {}): Plugin {
 
       const outputDirectory = resolve(root, "dist", ".openai");
       const hostingConfig = resolve(root, "config", "hosting.json");
-      const drizzleSource = resolve(root, "database", "migrations");
+      const drizzleSource = resolve(root, "src", "server", "database", "migrations");
 
       await rm(outputDirectory, { recursive: true, force: true });
       await mkdir(outputDirectory, { recursive: true });

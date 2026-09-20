@@ -3,6 +3,7 @@
 | Area | Start here |
 |---|---|
 | Using the app | [Usage guide](./guides/usage.md) |
+| Local development | [Commands and configuration](guides/development.md) |
 | System design | [Architecture](./technical/architecture.md) |
 | Tool integration | [MCP endpoint and contracts](./technical/mcp.md) |
 | Recovery behavior | [Recovery model](./technical/recovery-model.md) |

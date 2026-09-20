@@ -6,7 +6,7 @@ const require=createRequire(import.meta.url);const workerRequire=createRequire(r
 const paths=readdirSync('dist/server',{recursive:true}).filter(p=>/\.m?js$/.test(p)).sort((a,b)=>a==='index.js'?-1:b==='index.js'?1:0);
 const mf=new Miniflare({modules:paths.map(p=>({type:'ESModule',path:resolve('dist/server',p)})),modulesRoot:resolve('dist/server'),compatibilityDate:'2026-05-15',compatibilityFlags:['nodejs_compat'],d1Databases:['DB'],cf:false});
 try{
- const db=await mf.getD1Database('DB');await db.prepare(readFileSync('database/migrations/0000_skinny_brother_voodoo.sql','utf8')).run();
+ const db=await mf.getD1Database('DB');await db.prepare(readFileSync('src/server/database/migrations/0000_skinny_brother_voodoo.sql','utf8')).run();
  const init=await mf.dispatchFetch('http://localhost/api/state');assert.equal(init.status,200,await init.clone().text());let state=(await init.json()).state;assert.equal(state.workshops.length,3);const cookie=init.headers.get('set-cookie').split(';')[0];
  async function post(path,data,extra={}){const r=await mf.dispatchFetch(`http://localhost${path}`,{method:'POST',headers:{cookie,origin:'http://localhost','content-type':'application/json',...extra},body:JSON.stringify(data)});const j=await r.json();assert.equal(r.status,200,JSON.stringify(j));return j;}
  const rpc=async(method,params={})=>(await post('/api/mcp',{jsonrpc:'2.0',id:crypto.randomUUID(),method,params},{Accept:'application/json, text/event-stream','MCP-Protocol-Version':'2025-11-25'})).result;
