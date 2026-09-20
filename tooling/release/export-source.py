@@ -30,12 +30,12 @@ with tarfile.open(fileobj=io.BytesIO(archive)) as source, zipfile.ZipFile(target
         if (path.name.startswith('.env') and path.name != '.env.example') or path.name.startswith('.dev.vars') or path.suffix in {'.pem', '.sqlite', '.db'}:
             raise SystemExit('Potential local data is tracked: ' + item.name)
         data = source.extractfile(item).read()
-        if item.name == '.openai/hosting.json':
+        if item.name == 'config/hosting.json':
             config = json.loads(data)
             config.pop('project_id', None)
             data = (json.dumps(config, indent=2) + '\n').encode()
         bundle.writestr('second-take/' + item.name, data)
-    bundle.writestr('second-take/SOURCE_SNAPSHOT.md', '# Source snapshot\n\nSource revision: `' + revision + '`\n\nExported from committed source. The sole source transformation removes the original private Site project ID from `.openai/hosting.json`; logical runtime bindings are retained. No Git history, installed dependencies, database, session data or runtime credentials are included. See `docs/submission/build-disclosure.md` for work history and attribution.\n')
+    bundle.writestr('second-take/SOURCE_SNAPSHOT.md', '# Source snapshot\n\nSource revision: `' + revision + '`\n\nExported from committed source. The sole source transformation removes the original private Site project ID from `config/hosting.json`; logical runtime bindings are retained. No Git history, installed dependencies, database, session data or runtime credentials are included. See `docs/submission/build-disclosure.md` for work history and attribution.\n')
 with zipfile.ZipFile(target) as bundle:
     if bundle.testzip() is not None:
         raise SystemExit('Archive integrity verification failed')

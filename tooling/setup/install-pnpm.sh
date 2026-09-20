@@ -3,7 +3,7 @@ set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [[ "${SITES_ENV_READY:-}" != "1" ]]; then
-  exec bash "${script_dir}/../runtime/sites-env.sh" -- bash "$0" "$@"
+  exec bash "${script_dir}/../runtime/environment.sh" -- bash "$0" "$@"
 fi
 
 require_shared=0

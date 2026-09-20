@@ -9,7 +9,7 @@
     "install:ci": "bash tooling/setup/install-pnpm.sh",
     "dev": "node tooling/build/run-framework.mjs dev",
     "build": "node tooling/build/run-framework.mjs build",
-    "start": "node --import ./tooling/runtime/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
+    "start": "node --import ./tooling/runtime/environment.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate --config database/drizzle.config.ts",
     "test": "node --experimental-strip-types --test tests/unit/*.test.ts",

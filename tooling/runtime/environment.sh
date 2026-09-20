@@ -44,7 +44,7 @@ if [[ "${1:-}" == "--" ]]; then
 fi
 
 if [[ "$#" -eq 0 ]]; then
-  echo "usage: tooling/runtime/sites-env.sh -- command [args...]" >&2
+  echo "usage: tooling/runtime/environment.sh -- command [args...]" >&2
   exit 64
 fi
 

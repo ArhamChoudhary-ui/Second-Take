@@ -18,7 +18,7 @@ This checkout’s initial commit is dated September 14, 2026. That establishes w
 
 The project starts from a Vinext/React/Cloudflare Sites starter and reuses its build configuration and UI primitives. It uses open-source dependencies listed in `package.json` and pinned in `pnpm-lock.yaml`. It does not claim authorship of those libraries or established concepts such as idempotency, optimistic concurrency and compensating actions.
 
-Preserved notices include `tooling/vite/sites-vite-plugin.LICENSE` and `src/styles/vendor/shadcn-tailwind-4.13.0.LICENSE.md`. The project’s original code is offered under the root MIT license. No third-party media is needed for the demo; the favicon and interface graphics are simple project styling.
+Preserved notices include `tooling/vite/hosting-plugin.LICENSE` and `src/styles/vendor/shadcn-tailwind-4.13.0.LICENSE.md`. The project’s original code is offered under the root MIT license. No third-party media is needed for the demo; the favicon and interface graphics are simple project styling.
 
 ## AI assistance
 

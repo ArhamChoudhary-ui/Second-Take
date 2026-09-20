@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Renamed hosting configuration and runtime helpers to neutral filenames; removed the unused platform authentication module.
+
 - Consolidated application code under `src/`, with separate components, booking logic, database access, styles, and types.
 - Grouped build and maintenance utilities under `tooling/` and separated unit tests, integration checks, and helpers.
 - Moved migrations and Drizzle configuration into `database/`.

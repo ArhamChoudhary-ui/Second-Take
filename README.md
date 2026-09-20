@@ -53,6 +53,7 @@ Run commands from the repository root.
 | --- | --- |
 | [`src/`](src) | Pages, components, booking logic, database access, styles, and types |
 | [`database/`](database) | Migration history and Drizzle configuration |
+| [`config/`](config) | Hosting resource bindings |
 | [`tests/`](tests) | Unit tests, integration checks, and test helpers |
 | [`tooling/`](tooling) | Build, runtime, dependency setup, database, and release utilities |
 | [`public/`](public) | Static assets |

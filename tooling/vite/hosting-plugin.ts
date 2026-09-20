@@ -1,5 +1,5 @@
 // Vendored from @openai/sites-vite-plugin 0.2.0 (openai/sites#9).
-// See sites-vite-plugin.LICENSE for the upstream MIT license.
+// See hosting-plugin.LICENSE for the upstream MIT license.
 import { access, cp, mkdir, rm } from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { resolve } from "node:path";
@@ -174,7 +174,7 @@ export function sites({ mockAuth = true } = {}): Plugin {
       if (command !== "build") return;
 
       const outputDirectory = resolve(root, "dist", ".openai");
-      const hostingConfig = resolve(root, ".openai", "hosting.json");
+      const hostingConfig = resolve(root, "config", "hosting.json");
       const drizzleSource = resolve(root, "database", "migrations");
 
       await rm(outputDirectory, { recursive: true, force: true });
