@@ -1,24 +1,24 @@
 # Second Take
 
-**Preview, approve, and recover assistant bookings.**
+A booking assistant with explicit approval, selective cancellation, and recovery from interrupted requests.
 
-A software-only Alexa+ experience simulation with MCP tools and persistent action history. It helps users change part of a booking, recover a lost confirmation without duplicates, and protect their own edits.
+Second Take lets users review a plan before it changes anything. If a confirmation is lost, it checks the saved result before retrying. If someone edits a reservation themselves, recovery preserves that edit or asks them to resolve the conflict.
 
-[Usage guide](docs/guides/USAGE.md) · [Architecture](docs/technical/ARCHITECTURE.md) · [Submission guide](docs/submission/README.md) · [MIT license](LICENSE)
+Built with React, TypeScript, Vinext, Cloudflare Workers, and D1. The app exposes booking tools over MCP Streamable HTTP.
 
-## Features
+[Documentation](docs/README.md) · [Architecture](docs/technical/architecture.md) · [MCP reference](docs/technical/mcp.md)
 
-- Workshop plans with camera rental and an in-app calendar event.
-- Simulated restaurant, appointment and event reservations through conversation or forms.
-- Exact approval before booking, changing or cancelling; editable previews and field comparisons.
-- Three recovery stories: lost confirmation, a newer human edit, and partial cancellation.
-- Saved evidence, HTML receipts and calendar snapshots.
+## Capabilities
 
-**Prototype scope:** services are simulated; no real businesses are contacted. Conversation uses a guided parser. Calendar downloads do not synchronize automatically. The optional Bedrock adapter has not been verified with live AWS calls.
+- Plan workshop places, equipment rental, and a calendar event together.
+- Create, revise, and cancel simulated restaurant, appointment, and event reservations.
+- Review individual changes and approve the exact revision before execution.
+- Recover missing confirmations and partial cancellations without duplicating completed actions.
+- Inspect action history and export receipts or calendar files.
 
-## Run locally
+## Getting started
 
-Requires Node.js 24 and pnpm 11.25.0. No API key is needed for guided mode.
+Use **Node.js 24** and **pnpm 11.25.0**. Guided mode does not require API credentials.
 
 ```sh
 git clone https://github.com/ArhamChoudhary-ui/Second-Take.git
@@ -30,48 +30,46 @@ corepack pnpm db:local
 corepack pnpm start -- --port 3000
 ```
 
-Open **http://127.0.0.1:3000** for the workspace or **http://127.0.0.1:3000/demo** for recovery stories. Local Wrangler simulates the Worker and D1 database. Clearing browser cookies starts a separate workspace.
+Open [localhost:3000](http://127.0.0.1:3000). Try “Book a restaurant in Jaipur tomorrow at 7 pm for 2 people,” or open [/demo](http://127.0.0.1:3000/demo) for the recovery scenarios.
 
-Try: **“Book a restaurant in Jaipur tomorrow at 7 pm for 2 people.”**
+The local server uses Wrangler and a persistent local D1 database. Workspace identity is stored in a browser cookie. See the [usage guide](docs/guides/usage.md) for the booking and recovery flows.
 
-## Verify
+## Development
 
-```sh
-corepack pnpm typecheck
-corepack pnpm test
-corepack pnpm build
-corepack pnpm verify:worker
-```
+Run commands from the repository root.
 
-The release suite contains 47 tests. Compiled Worker checks exercise the HTTP/MCP booking and recovery flows. GitHub Actions runs the verification workflow on pushes and pull requests. See the [test report](docs/technical/TEST_REPORT.md) for tested behavior and remaining gaps.
+| Command | Purpose |
+| --- | --- |
+| `corepack pnpm dev` | Start the development server |
+| `corepack pnpm typecheck` | Check TypeScript |
+| `corepack pnpm test` | Run domain and protocol tests |
+| `corepack pnpm build` | Build the client and Worker |
+| `corepack pnpm verify:worker` | Test compiled HTTP and MCP workflows |
+| `corepack pnpm db:generate` | Generate a database migration |
 
-## Project structure
+## Repository layout
 
-| Path | Contents |
-|---|---|
-| `app/` | Pages, API routes and global styles |
-| `components/second-take/` | Workspace, reservation reviews and recovery stories |
-| `components/ui/` | UI primitives used by the app |
-| `lib/second-take/` | Booking logic, MCP, validation, parsing and exports |
-| `db/`, `drizzle/` | Database schema, helpers and migrations |
-| `scripts/` | Build, local setup, verification and source export |
-| `tests/` | Domain, protocol and regression tests |
-| `docs/guides/` | User walkthrough |
-| `docs/technical/` | Architecture, protocol, security and test evidence |
-| `docs/submission/` | Project description, video script and hackathon feedback |
-| `public/` | Static assets |
-| `build/`, `vendor/` | Required starter helpers and upstream license notices |
+| Directory | Contents |
+| --- | --- |
+| [`src/`](src) | Pages, components, booking logic, database access, styles, and types |
+| [`database/`](database) | Migration history and Drizzle configuration |
+| [`tests/`](tests) | Unit tests, integration checks, and test helpers |
+| [`tooling/`](tooling) | Build, runtime, dependency setup, database, and release utilities |
+| [`public/`](public) | Static assets |
+| [`docs/`](docs) | Usage, technical references, and submission materials |
 
-## Technical details
+The `@/` import alias resolves to `src/`. Framework configuration and package manifests remain at the root.
 
-React, TypeScript, Vinext, Cloudflare Workers and D1. The browser calls ten MCP tools at `/api/mcp`, using Streamable HTTP and protocol version `2025-11-25`. Approval revisions, stable resource identities and optimistic version checks enforce the booking rules.
+## Project status
 
-The hosted [prototype](https://second-take.kschoudhary43.chatgpt.site) currently requires owner access. Use the local setup above to run your own copy. The public source retains logical runtime bindings without the original private Site identity.
+This is an Alexa+ experience simulation. Booking providers are simulated; the app does not contact real businesses. Conversation uses a guided parser, and calendar exports are snapshots. The optional Bedrock adapter is not verified against live AWS services; configuration is described in [.env.example](.env.example).
 
-For optional server-side Bedrock configuration, see [.env.example](.env.example). Workshop interpretation can use that adapter; the other reservation flows remain guided. See [security boundaries](docs/technical/SECURITY.md) before connecting real providers.
+The [hosted prototype](https://second-take.kschoudhary43.chatgpt.site) currently requires owner access. The local setup above runs independently. See the [test report](docs/technical/test-report.md) for coverage and known gaps, or the [submission materials](docs/submission/README.md) for the hackathon entry.
 
-## Documentation and license
+## Contributing
 
-[Documentation index](docs/README.md) · [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
+Read the [contribution guide](.github/CONTRIBUTING.md) before changing approval, recovery, or provider behavior. Release notes are in the [changelog](docs/changelog.md).
 
-MIT licensed. Existing dependency and starter notices are retained. [Build disclosure](docs/submission/BUILD_DISCLOSURE.md) describes recorded work, existing components and AI assistance.
+## License
+
+[MIT](LICENSE). Third-party notices remain with their respective source files. See [build provenance](docs/submission/build-disclosure.md) for starter components and development attribution.

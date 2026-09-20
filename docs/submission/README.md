@@ -16,12 +16,12 @@ The source is published. The hackathon entry has not been submitted. The optiona
 
 | File | Use |
 |---|---|
-| [Project description](PROJECT_DESCRIPTION.md) | Text for the Devpost form |
-| [Demo script](DEMO_SCRIPT.md) | English narration and screen actions |
-| [Product feedback](PRODUCT_FEEDBACK.md) | Tool and API feedback |
-| [Friction log](FRICTION_LOG.md) | Observed problems and suggestions |
-| [Build disclosure](BUILD_DISCLOSURE.md) | Work dates, starter components and AI assistance |
-| [Checklist](CHECKLIST.md) | Final entry checks |
+| [Project description](./project-description.md) | Text for the Devpost form |
+| [Demo script](./demo-script.md) | English narration and screen actions |
+| [Product feedback](./product-feedback.md) | Tool and API feedback |
+| [Friction log](./friction-log.md) | Observed problems and suggestions |
+| [Build disclosure](./build-disclosure.md) | Work dates, starter components and AI assistance |
+| [Checklist](./checklist.md) | Final entry checks |
 
 ## Finish the entry
 
@@ -34,4 +34,4 @@ Use the repository URL above as the new project's Open Source contribution link,
 
 The strongest demonstration is **The missing confirmation**: the service saves a camera reservation, its reply is deliberately lost, and Second Take checks the original identity before finishing without a duplicate. Follow with **The edit that stays yours** to demonstrate protection of a human edit.
 
-Consult the [official requirements](https://amazonappdev2026.devpost.com/) and [rules](https://amazonappdev2026.devpost.com/rules) before submitting. See the [test report](../technical/TEST_REPORT.md) for evidence and limitations. Do not claim real business reservations, unrestricted language understanding or untested AWS usage.
+Consult the [official requirements](https://amazonappdev2026.devpost.com/) and [rules](https://amazonappdev2026.devpost.com/rules) before submitting. See the [test report](../technical/test-report.md) for evidence and limitations. Do not claim real business reservations, unrestricted language understanding or untested AWS usage.
