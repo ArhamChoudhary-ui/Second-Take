@@ -34,3 +34,30 @@ Guided mode runs without credentials. The optional Bedrock adapter accepts the s
 The [hosted prototype](https://second-take.kschoudhary43.chatgpt.site) currently requires owner access. Use the local setup to run your own copy. Repository changes do not automatically redeploy that prototype.
 
 For provider integrations, read the [architecture](../technical/architecture.md), [security boundaries](../technical/security.md), and [contribution guide](../../.github/CONTRIBUTING.md).
+
+## Cloudflare deployment
+
+The production Worker and D1 identifiers are declared in `config/hosting.json`. Forks must replace the database ID with one belonging to their own account. The ID identifies a resource; it is not an API credential.
+
+For the Git-connected Cloudflare Worker, use these settings:
+
+| Setting | Value |
+| --- | --- |
+| Worker name | `second-take` |
+| Branch | `main` |
+| Root directory | Repository root |
+| Build command | `pnpm run build` |
+| Deploy command | `pnpm run deploy` |
+
+The build generates `dist/server/wrangler.json` with the `DB` binding and migration directory. The deploy command applies pending D1 migrations to the remote database before publishing the Worker. It stops if migration fails. The Cloudflare build credentials must have permission to edit this D1 database as well as deploy the Worker.
+
+For manual deployment after authenticating Wrangler to the correct Cloudflare account:
+
+```sh
+corepack pnpm build
+corepack pnpm deploy
+```
+
+`db:local` remains local. `db:remote` and `deploy` modify the configured production resources. Do not manually create the `workspaces` table before running its migration.
+
+After deployment, open the public Worker URL in a signed-out browser. Verify a booking preview, approval, refresh persistence, and the recovery scenarios at `/demo`. A successful local build alone does not establish that the production database is reachable.

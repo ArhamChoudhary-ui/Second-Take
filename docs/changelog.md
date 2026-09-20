@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Configured the production D1 binding and added migration-first Cloudflare deployment.
+
 - Grouped database migrations with server database code and consolidated tool configuration under `config/`.
 - Removed unused starter configuration and moved development details out of the main README.
 

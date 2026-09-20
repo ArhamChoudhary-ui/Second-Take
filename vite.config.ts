@@ -1,12 +1,10 @@
 import vinext from "vinext";
 import tailwindcss from "@tailwindcss/postcss";
 import { defineConfig } from "vite";
+import { resolve } from "node:path";
 import hostingConfig from "./config/hosting.json";
 import { readExecutionProfile } from "./tooling/runtime/execution-profile.mjs";
 import { sites } from "./tooling/vite/hosting-plugin";
-
-const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
-  "00000000-0000-4000-8000-000000000000";
 
 const { d1, r2 } = hostingConfig;
 
@@ -14,15 +12,18 @@ const { d1, r2 } = hostingConfig;
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const managedLinux = readExecutionProfile() === "managed-linux";
 
-const localBindingConfig = {
+const workerConfig = {
+  name: hostingConfig.name,
+  workers_dev: true,
   main: "vinext/server/fetch-handler",
   compatibility_flags: ["nodejs_compat"],
   d1_databases: d1
     ? [
         {
           binding: d1,
-          database_name: "site-creator-d1",
-          database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
+          database_name: hostingConfig.database_name,
+          database_id: hostingConfig.database_id,
+          migrations_dir: resolve("src/server/database/migrations"),
         },
       ]
     : [],
@@ -63,7 +64,7 @@ export default defineConfig(async () => {
       cloudflare({
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
         inspectorPort: false,
-        config: localBindingConfig,
+        config: workerConfig,
       }),
     ],
   };

@@ -1,4 +1,7 @@
 {
   "d1": "DB",
-  "r2": null
+  "r2": null,
+  "name": "second-take",
+  "database_name": "second-take-db",
+  "database_id": "44e9331f-4310-4cd0-ad59-7baa86898b3d"
 }

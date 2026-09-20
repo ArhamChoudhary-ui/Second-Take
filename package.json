@@ -16,7 +16,9 @@
     "typecheck": "tsc --noEmit",
     "mcp:smoke": "node tests/integration/mcp-smoke.mjs",
     "verify:worker": "node tests/integration/worker.mjs",
-    "db:local": "node tooling/database/migrate.mjs"
+    "db:local": "node tooling/database/migrate.mjs",
+    "db:remote": "wrangler d1 migrations apply DB --remote --config dist/server/wrangler.json",
+    "deploy": "pnpm run db:remote && wrangler deploy --config dist/server/wrangler.json"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
